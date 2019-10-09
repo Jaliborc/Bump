@@ -1,3 +1,15 @@
+##### 8.2.1
+* Now compatible with classic servers.
+
+##### 8.2.0
+* Updated for World of Warcraft patch 8.2.0.
+
+##### 8.1.0
+* Updated for World of Warcraft patch 8.1.0.
+
+##### 21
+* Updated for Shadow of Argus
+
 ##### 20
 * Updated for Tomb of Sargeras
 

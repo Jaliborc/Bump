@@ -1,8 +1,8 @@
-## Interface: 70200
+## Interface: 80200
 ## Title: |cff66ccffBump|r
 ## Notes: Displays total experience, reputation, money and currency gained after leaving an instance.
 ## Author: Jaliborc (João Cardoso)
-## X-License: GNU General Public License Version 3
+## X-License: All Rights Reserved
 ## X-Category: Quest
 
 ## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money

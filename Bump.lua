@@ -1,5 +1,5 @@
 --[[
-Copyright 2009-2017 João Cardoso
+Copyright 2009-2019 João Cardoso
 Bump is distributed under the terms of the GNU General Public License (or the Lesser GPL).
 This file is part of Bump.
 
@@ -34,10 +34,10 @@ end
 function Bump:PLAYER_ENTERING_WORLD()
 	self:UnregisterEvent('PLAYER_ENTERING_WORLD')
 	self:RegisterEvent('ZONE_CHANGED_NEW_AREA')
-	
+
 	self.PLAYER_ENTERING_WORLD = nil
 	self:ZONE_CHANGED_NEW_AREA()
-	
+
 	Bump_Currency = Bump_Currency or {}
 	Bump_Rep = Bump_Rep or {}
 end
@@ -74,7 +74,7 @@ end
 
 function Bump:CHAT_MSG_COMBAT_FACTION_CHANGE(message)
 	local faction, increase = strmatch(message, MatchReputation)
-	if increase then	
+	if increase then
 		Bump_Rep[faction] = (Bump_Rep[faction] or 0) + increase
 	end
 end
@@ -90,10 +90,12 @@ end
 --[[ API ]]--
 
 function Bump:StartValues()
-	for _, id in pairs(CurrencyList) do
-		Bump_Currency[id] = select(2, GetCurrencyInfo(id))
+	if GetCurrencyInfo then
+		for _, id in pairs(CurrencyList) do
+			Bump_Currency[id] = select(2, GetCurrencyInfo(id))
+		end
 	end
-	
+
 	wipe(Bump_Rep)
 	Bump_Instance = GetRealZoneText()
 	Bump_Money = GetMoney()
@@ -104,23 +106,23 @@ function Bump:PrintValues()
 	for faction, increase in pairs(Bump_Rep) do
 		self:Print('COMBAT_FACTION_CHANGE', L.Reputation, faction, increase, Bump_Instance)
 	end
-	
+
 	for id, value in pairs(Bump_Currency) do
 		local name, newValue = GetCurrencyInfo(id)
 		if newValue - value > 0 then
 			self:Print('LOOT', L.Currency, newValue - value, name, Bump_Instance)
 		end
 	end
-	
+
 	local money = GetMoney() - Bump_Money
 	if money > 0 then
-		self:Print('MONEY', L.Money, GetCoinTextureString(money), Bump_Instance)
+		self:Print('MONEY', L.Money, GetMoneyString(money, true), Bump_Instance)
 	end
-	
+
 	if Bump_XP > 0 then
 		self:Print('COMBAT_XP_GAIN', L.Experience, Bump_XP, Bump_Instance)
 	end
-	
+
 	Bump_Instance = nil
 end
 
