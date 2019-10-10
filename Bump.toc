@@ -1,4 +1,5 @@
 ## Interface: 80200
+## Version: 8.2.1
 ## Title: |cff66ccffBump|r
 ## Notes: Displays total experience, reputation, money and currency gained after leaving an instance.
 ## Author: Jaliborc (João Cardoso)
