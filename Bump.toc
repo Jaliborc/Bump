@@ -1,12 +1,12 @@
-## Interface: 11303
-## Version: 8.3.0
+## Interface: 90001
+## Version: 9.0.1
 ## Title: |cff66ccffBump|r
 ## Notes: Displays total experience, reputation, money and currency gained after leaving an instance.
 ## Author: Jaliborc (João Cardoso)
 ## X-License: All Rights Reserved
 ## X-Category: Quest
 
-## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money
+## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Money
 
 Localization.lua
 Bump.lua
