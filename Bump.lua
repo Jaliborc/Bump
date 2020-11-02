@@ -19,7 +19,6 @@ along with Bump. If not, see <http://www.gnu.org/licenses/>.
 
 local Bump = CreateFrame('Frame', 'Bump')
 local MatchReputation = FACTION_STANDING_INCREASED:gsub('%%s', '(%.+)'):gsub('%%d', '(%%d+)')
-local CurrencyList = {HONOR_CURRENCY, CONQUEST_CURRENCY, JUSTICE_CURRENCY, VALOR_CURRENCY}
 local L = Bump_Locals
 
 
@@ -38,7 +37,6 @@ function Bump:PLAYER_ENTERING_WORLD()
 	self.PLAYER_ENTERING_WORLD = nil
 	self:ZONE_CHANGED_NEW_AREA()
 
-	Bump_Currency = Bump_Currency or {}
 	Bump_Rep = Bump_Rep or {}
 end
 
@@ -90,12 +88,6 @@ end
 --[[ API ]]--
 
 function Bump:StartValues()
-	if GetCurrencyInfo then
-		for _, id in pairs(CurrencyList) do
-			Bump_Currency[id] = select(2, GetCurrencyInfo(id))
-		end
-	end
-
 	wipe(Bump_Rep)
 	Bump_Instance = GetRealZoneText()
 	Bump_Money = GetMoney()
@@ -105,13 +97,6 @@ end
 function Bump:PrintValues()
 	for faction, increase in pairs(Bump_Rep) do
 		self:Print('COMBAT_FACTION_CHANGE', L.Reputation, faction, increase, Bump_Instance)
-	end
-
-	for id, value in pairs(Bump_Currency) do
-		local name, newValue = GetCurrencyInfo(id)
-		if newValue - value > 0 then
-			self:Print('LOOT', L.Currency, newValue - value, name, Bump_Instance)
-		end
 	end
 
 	local money = GetMoney() - Bump_Money
