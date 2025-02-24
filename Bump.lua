@@ -1,49 +1,27 @@
 --[[
-Copyright 2009-2020 João Cardoso
-Bump is distributed under the terms of the GNU General Public License (or the Lesser GPL).
-This file is part of Bump.
-
-Bump is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-Bump is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with Bump. If not, see <http://www.gnu.org/licenses/>.
+Copyright 2009-2021 João Cardoso
+All Rights Reserved
 --]]
 
-local Bump = CreateFrame('Frame', 'Bump')
+local ADDON, Addon = ...
+local C = LibStub('C_Everywhere').CurrencyInfo
+local Bump = LibStub('WildAddon-1.1'):NewAddon(ADDON, Addon)
+
 local MatchReputation = FACTION_STANDING_INCREASED:gsub('%%s', '(%.+)'):gsub('%%d', '(%%d+)')
-local CurrencyList = {HONOR_CURRENCY, CONQUEST_CURRENCY, JUSTICE_CURRENCY, VALOR_CURRENCY}
 local L = Bump_Locals
 
 
---[[ Startup ]]--
+--[[ Events ]]--
 
-function Bump:Startup()
-	self:SetScript('OnEvent', function(self, event, ...) self[event](self, ...) end)
-	self:RegisterEvent('PLAYER_ENTERING_WORLD')
-	self.Startup = nil
-end
-
-function Bump:PLAYER_ENTERING_WORLD()
-	self:UnregisterEvent('PLAYER_ENTERING_WORLD')
-	self:RegisterEvent('ZONE_CHANGED_NEW_AREA')
-
-	self.PLAYER_ENTERING_WORLD = nil
-	self:ZONE_CHANGED_NEW_AREA()
-
+function Bump:OnLoad()
 	Bump_Currency = Bump_Currency or {}
 	Bump_Rep = Bump_Rep or {}
+
+	self:ContinueOn('PLAYER_ENTERING_WORLD', function()
+		self:RegisterEvent('ZONE_CHANGED_NEW_AREA')
+		self:ZONE_CHANGED_NEW_AREA()
+	end)
 end
-
-
---[[ Events ]]--
 
 function Bump:ZONE_CHANGED_NEW_AREA()
 	local IsInstance = IsInInstance()
@@ -74,7 +52,7 @@ end
 
 function Bump:CHAT_MSG_COMBAT_FACTION_CHANGE(message)
 	local faction, increase = strmatch(message, MatchReputation)
-	if increase then
+	if faction and increase then
 		Bump_Rep[faction] = (Bump_Rep[faction] or 0) + increase
 	end
 end
@@ -90,13 +68,16 @@ end
 --[[ API ]]--
 
 function Bump:StartValues()
-	if GetCurrencyInfo then
-		for _, id in pairs(CurrencyList) do
-			Bump_Currency[id] = select(2, GetCurrencyInfo(id))
+	wipe(Bump_Rep)
+	wipe(Bump_Currency)
+
+	for id = 1, 5000 do
+		local data = C.GetCurrencyInfo(id)
+		if data and data.quality > 0 then
+			Bump_Currency[id] = data.quantity or 0
 		end
 	end
 
-	wipe(Bump_Rep)
 	Bump_Instance = GetRealZoneText()
 	Bump_Money = GetMoney()
 	Bump_XP = 0
@@ -107,10 +88,13 @@ function Bump:PrintValues()
 		self:Print('COMBAT_FACTION_CHANGE', L.Reputation, faction, increase, Bump_Instance)
 	end
 
-	for id, value in pairs(Bump_Currency) do
-		local name, newValue = GetCurrencyInfo(id)
-		if newValue - value > 0 then
-			self:Print('LOOT', L.Currency, newValue - value, name, Bump_Instance)
+	for id, amount in pairs(Bump_Currency) do
+		local data = C.GetCurrencyInfo(id)
+		if data then
+			local change = (data.quantity or 0) - amount
+			if change > 0 then
+				self:Print('LOOT', L.Currency, change, data.name, Bump_Instance)
+			end
 		end
 	end
 
@@ -135,8 +119,3 @@ function Bump:Print(channel, pattern, ...)
 		end
 	end
 end
-
-
---[[ Start Addon ]]--
-
-Bump:Startup()
