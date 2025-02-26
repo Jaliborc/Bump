@@ -1,5 +1,5 @@
 --[[
-Copyright 2009-2021 João Cardoso
+Copyright 2009-2025 João Cardoso
 All Rights Reserved
 --]]
 

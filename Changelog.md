@@ -1,4 +1,4 @@
-## 11 (unreleased)
+## 11
 * Updated for The War Within, Dragonflight, Cataclysm Classic and latest Vanilla release.
 
 ## 9.1.0
