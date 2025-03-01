@@ -1,3 +1,7 @@
+## 11.1
+* Retail: Added icon to title.
+* All: Fixed event handling bug.
+
 ## 11
 * Updated for The War Within, Dragonflight, Cataclysm Classic and latest Vanilla release.
 

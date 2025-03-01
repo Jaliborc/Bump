@@ -1,7 +1,7 @@
 ## Interface: 40401
 ## Version: 11
 ## Title: |cff66ccffBump|r
-## Notes: Displays total experience, reputation, money and currency gained after leaving an instance.
+## Notes: Displays total experience, reputation, money|nand currency gained after leaving an instance.|n|cffbbbbbbBy João Cardoso|r
 ## Author: Jaliborc (João Cardoso)
 ## X-License: All Rights Reserved
 ## X-Category: Quests & Leveling
