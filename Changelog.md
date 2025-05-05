@@ -1,3 +1,6 @@
+### 11.1.1
+* Retail: Updated description to match the new addon list formatting.
+
 ## 11.1
 * Retail: Added icon to title.
 * All: Fixed event handling bug.
