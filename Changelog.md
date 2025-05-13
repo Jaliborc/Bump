@@ -1,3 +1,7 @@
+### 11.1.2
+* Added Russian locales.
+* TOC update.
+
 ### 11.1.1
 * Retail: Updated description to match the new addon list formatting.
 

@@ -1,5 +1,5 @@
 ## Interface: 40402
-## Version: 11.1.1
+## Version: 11.1.2
 ## Title: |cff66ccffBump|r
 ## Notes: Displays total experience, reputation, money|nand currency gained after leaving an instance.|n|cffbbbbbbBy João Cardoso|r
 ## Author: Jaliborc (João Cardoso)

@@ -4,7 +4,7 @@
 ## X-License: All Rights Reserved
 ## X-Category: Quests & Leveling
 
-## Version: 11.1.1
+## Version: 11.1.2
 ## Interface: 30403
 ## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money
 

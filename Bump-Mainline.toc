@@ -5,8 +5,8 @@
 ## X-License: All Rights Reserved
 ## Category: Quests & Leveling
 
-## Version: 11.1.1
-## Interface: 110100
+## Version: 11.1.2
+## Interface: 110105
 ## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money
 
 libs/LibStub/LibStub.lua
