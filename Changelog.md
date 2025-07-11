@@ -1,3 +1,6 @@
+### 11.1.3
+* Added support for Mists of Pandaria servers.
+
 ### 11.1.2
 * Added Russian locales.
 * TOC update.
