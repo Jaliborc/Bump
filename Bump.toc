@@ -7,7 +7,7 @@
 ## X-Category: Quests & Leveling
 
 ## Version: 11.1.3
-## Interface: 110107, 110200, 50500, 40402, 30405, 20504, 11507
+## Interface: 110200, 50500, 40402, 30405, 20504, 11507
 ## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money
 
 libs/LibStub/LibStub.lua
