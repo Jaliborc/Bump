@@ -1,5 +1,8 @@
+### 11.2.1
+* Retail: Updated TOC to 12.2.5.
+
 ## 11.2
-* Retail: Updated for Ghosts of K'aresh update.
+* Retail: Updated for Ghosts of K'aresh.
 
 ### 11.1.4
 * Moved back to a full addon-based event handling, as Blizzard's event registry is prone to event loss (thank you to the dev community for all the suggestions).
