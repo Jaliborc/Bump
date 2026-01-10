@@ -1,5 +1,5 @@
 --[[
-Copyright 2009-2025 João Cardoso
+Copyright 2009-2026 João Cardoso
 All Rights Reserved
 --]]
 
@@ -111,11 +111,21 @@ function Bump:PrintValues()
 end
 
 function Bump:Print(channel, pattern, ...)
- 	local channel = 'CHAT_MSG_'..channel
- 	for i = 1, 10 do
-		local frame = _G['ChatFrame'..i]
+	local i = 1
+	local frame = _G['ChatFrame' .. i]
+ 	local channel = 'CHAT_MSG_' .. channel
+	local text = pattern:format(...)
+
+	while frame do
 		if frame:IsEventRegistered(channel) then
-			ChatFrame_MessageEventHandler(frame, channel, pattern:format(...), '', nil, '')
+			if frame.MessageEventHandler then
+				frame:MessageEventHandler(channel, text, '', nil, '')
+			elseif ChatFrame_MessageEventHandler then
+				ChatFrame_MessageEventHandler(frame, channel, text, '', nil, '')
+			end
 		end
+
+		i = i + 1
+		frame = _G['ChatFrame' .. i]
 	end
 end
