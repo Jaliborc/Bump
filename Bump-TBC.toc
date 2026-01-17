@@ -6,7 +6,7 @@
 ## Category: Quests & Leveling
 
 ## Version: 11.2.3
-## Interface: 120001, 110207
+## Interface: 20505
 ## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money
 
 libs/LibStub/LibStub.lua
