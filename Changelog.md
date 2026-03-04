@@ -1,3 +1,6 @@
+### 12.0.1
+* Now checks for secret values. Unclear whether the addon it will still be of any use in Midnight, though.
+
 ## 12.0.0
 * Updated TOC numbers for Midnight live servers.
 

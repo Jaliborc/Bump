@@ -51,16 +51,20 @@ function Bump:PLAYER_UNGHOST()
 end
 
 function Bump:CHAT_MSG_COMBAT_FACTION_CHANGE(message)
-	local faction, increase = strmatch(message, MatchReputation)
-	if faction and increase then
-		Bump_Rep[faction] = (Bump_Rep[faction] or 0) + increase
+	if not issecretvalue(message) then
+		local faction, increase = strmatch(message, MatchReputation)
+		if faction and increase then
+			Bump_Rep[faction] = (Bump_Rep[faction] or 0) + increase
+		end
 	end
 end
 
 function Bump:CHAT_MSG_COMBAT_XP_GAIN(message)
-	local increase = strmatch(message, '(%d+)')
-	if increase then
-		Bump_XP = Bump_XP + increase
+	if not issecretvalue(message) then
+		local increase = strmatch(message, '(%d+)')
+		if increase then
+			Bump_XP = Bump_XP + increase
+		end
 	end
 end
 
