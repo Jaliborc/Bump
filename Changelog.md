@@ -1,3 +1,6 @@
+### 12.0.2
+* Updated TOC for Retail and Mists, now that the addon is usable again.
+
 ### 12.0.1
 * Now checks for secret values. Unclear whether the addon it will still be of any use in Midnight, though.
 
