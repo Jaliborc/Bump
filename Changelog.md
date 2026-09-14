@@ -1,3 +1,6 @@
+## 12.1
+* Added support for 12.1 servers and the new classic TOC format.
+
 ### 12.0.2
 * Updated TOC for Retail and Mists, now that the addon is usable again.
 

@@ -1,11 +1,12 @@
 ## Title: |cff66ccffBump|r
-## Notes: Displays total experience, reputation, money|nand currency gained after leaving an instance.|n|cffbbbbbbBy João Cardoso|r
+## IconTexture: Interface/Addons/Bump/achievement_reputation_06
+## Notes: Displays total experience, reputation, money and currency gained after leaving an instance.|n|cffbbbbbbBy João Cardoso|r
 ## Author: Jaliborc (João Cardoso)
 ## X-License: All Rights Reserved
 ## Category: Quests & Leveling
 
-## Version: 12.0.2
-## Interface: 120007, 50504, 40402, 30404, 20505, 11508
+## Version: 12.1
+## Interface: 120100, 50504, 40402, 30404, 20506, 11509
 ## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money
 
 libs/LibStub/LibStub.lua
