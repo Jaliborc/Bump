@@ -5,8 +5,8 @@
 ## X-License: All Rights Reserved
 ## Category: Quests & Leveling
 
-## Version: 12.1
-## Interface: 120100, 50504, 40402, 30404, 20506, 11509
+## Version: 12.1.1
+## Interface: 120105, 50504, 40402, 30404, 20506, 16001, 11509
 ## SavedVariablesPerCharacter: Bump_Instance, Bump_Rep, Bump_XP, Bump_Currency, Bump_Money
 
 libs/LibStub/LibStub.lua
