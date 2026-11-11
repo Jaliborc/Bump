@@ -1,3 +1,6 @@
+### 12.1.2
+* Added support for Forever!
+
 ### 12.1.1
 * TOC Update
 
